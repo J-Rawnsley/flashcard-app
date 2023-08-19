@@ -1,0 +1,72 @@
+/* Reset some default browser styles */
+body, h1, p, input, button, table {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+/* input[type="text"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
+
+/* button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} */
+
+/* button:hover {
+    background-color: #0056b3;
+} */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    margin: 20px;
+}
+
+table th, table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+th {
+    font-size: large;
+}
+
+#noExamples {
+    margin-bottom: 50px;
+}
+
+#initiate {
+    margin-bottom: 50px;
+}
+
+.toggle {
+    margin: 30px auto;
+}

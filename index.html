@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Flashcard Hint Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Flashcard Hint Generator</h1>
+        <p id="initiate"></p>
+        <section id="intro">
+            <p>Welcome to the flashcard hint generator.  This is a time-saving app for English language learners who use flashcards (either paper flashcards or flashcard software such as Anki or Brainscape) to remember words and spellings. When you learn a new word, and you want to remember that word, you can make a flashcard with the word on one side and a hint on the other. You can train your memory by looking at the hint and trying to recall the word. The bit that takes time is finding or thinking of a suitable hint for each new word. This app does that for you, to  save you time and help you learn more words! The app works in two ways:</p>
+            <ol>
+                <li>Type as many  words as you like into the box, separated by spaces. The app will produce a list of words and a hint for each word, which you can copy and paste into your favourite flashcard app.</li>
+                <li>Type a single word into the box. In this case, the hint generator will give you a selection of different hints for that word, so you can choose your favourite (note that some words have only one hint available).</li>
+            </ol>    
+            <p>The hints are generated using <a href="https://www.wordsapi.com/">Words API</a></p>
+        </section>
+            
+        <!-- <div class="toggle">
+            <input type="radio" class="btn-check" name="cardType" id="option1" autocomplete="off" onClick="toggle('multi')" checked>
+            <label class="btn btn-primary" for="option1">Multiple words</label>
+
+            <input type="radio" class="btn-check" name="cardType" id="option2" autocomplete="off" onClick="toggle('single')">
+            <label class="btn btn-primary" for="option2">Single word</label>
+        </div> -->
+        <!-- <div id="input-container">
+            <textarea id="input" type="text" placeholder="type an English word or list of words separated by spaces"></textarea>
+            <button type="button" class="btn btn-primary" id="generate" onClick="createTables()">Generate</button>
+        </div> -->
+        <div class="input-group mb-3" id="input-container">
+            <input id="input" type="text" class="form-control" placeholder="type an English word or list of words separated by spaces" aria-label="type an English word or list of words separated by spaces" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="generate" onClick="createTables()">Generate Hints</button>
+            </div>
+          </div>
+        <h2 id="exampleHeading"></h2>
+        <table id="cloze-table"></table>
+        <p id ="noExamples"></p>
+        <h2 id="definitionHeading"></h2>
+        <table id="meaning-table"></table>
+    </div>
+    <script src="./singleCardScript.js"></script>
+    <script src="./multiCardScript.js"></script>
+    <script src="./toggle.js"></script>
+</body>
+</html>
