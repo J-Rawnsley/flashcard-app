@@ -19,18 +19,6 @@
             </ol>    
             <p>The hints are generated using <a href="https://www.wordsapi.com/">Words API</a></p>
         </section>
-            
-        <!-- <div class="toggle">
-            <input type="radio" class="btn-check" name="cardType" id="option1" autocomplete="off" onClick="toggle('multi')" checked>
-            <label class="btn btn-primary" for="option1">Multiple words</label>
-
-            <input type="radio" class="btn-check" name="cardType" id="option2" autocomplete="off" onClick="toggle('single')">
-            <label class="btn btn-primary" for="option2">Single word</label>
-        </div> -->
-        <!-- <div id="input-container">
-            <textarea id="input" type="text" placeholder="type an English word or list of words separated by spaces"></textarea>
-            <button type="button" class="btn btn-primary" id="generate" onClick="createTables()">Generate</button>
-        </div> -->
         <div class="input-group mb-3" id="input-container">
             <input id="input" type="text" class="form-control" placeholder="type an English word or list of words separated by spaces" aria-label="type an English word or list of words separated by spaces" aria-describedby="basic-addon2">
             <div class="input-group-append">
@@ -39,12 +27,13 @@
           </div>
         <h2 id="exampleHeading"></h2>
         <table id="cloze-table"></table>
-        <p id ="noExamples"></p>
+        <p id="noExamples"></p>
+        <div id ="wordNotFound"></div>
         <h2 id="definitionHeading"></h2>
         <table id="meaning-table"></table>
     </div>
     <script src="./singleCardScript.js"></script>
     <script src="./multiCardScript.js"></script>
-    <script src="./toggle.js"></script>
+    <script src="./mainScript.js"></script>
 </body>
 </html>
