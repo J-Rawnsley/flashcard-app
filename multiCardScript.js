@@ -30,10 +30,6 @@ async function createTablesMulti() {
   console.log(words);
 
   const clozeTable = document.getElementById("cloze-table");
-  // removeAllChildNodes(clozeTable);
-
-  const meaningsTable = document.getElementById("meaning-table");
-  // removeAllChildNodes(meaningsTable);
 
   const headerRow = document.createElement("tr");
   headerRow.innerHTML = "<th>Word</th><th>Clue</th>";

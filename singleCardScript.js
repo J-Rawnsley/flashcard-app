@@ -15,6 +15,7 @@ function displayExamples({ word, examples }) {
 
     const headerRow = document.createElement("tr");
     headerRow.innerHTML = "<th>Word</th><th>Example</th>";
+    headerRow.classList.add("table-success")
     table.appendChild(headerRow);
     console.log(examples);
 

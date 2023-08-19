@@ -70,3 +70,7 @@ th {
 .toggle {
     margin: 30px auto;
 }
+
+tr {
+    text-align: left;
+}
