@@ -59,7 +59,7 @@ async function createTablesSingle() {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "df7a0a6242msh560c398f0a328c5p11815fjsndbccdb562679",
+      "X-RapidAPI-Key": config.apiKey,
       "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
     },
   };
