@@ -1,6 +1,6 @@
 function displayCard({ word, examples }, meaningsResult) {
   document.getElementById("exampleHeading").innerHTML = "Flashcards";
-  document.getElementById("definitionHeading").innerHTML = ""
+  document.getElementById("definitionHeading").innerHTML = "";
 
   const table = document.getElementById("cloze-table");
 
@@ -20,11 +20,8 @@ function displayCard({ word, examples }, meaningsResult) {
   }
 }
 
-
-
 async function createTablesMulti() {
-
-  clear()
+  clear();
 
   const words = document.getElementById("input").value.split(" ");
   console.log(words);
@@ -39,17 +36,11 @@ async function createTablesMulti() {
 }
 
 async function createLine(word) {
-  const examplesURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`
+  // const examplesURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`
+  const examplesURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-examples?word=${word}`;
 
-  const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
-
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": config.apiKey,
-  //     "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-  //   },
-  // };
+  // const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
+  const meaningsURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-definitions?word=${word}`;
 
   try {
     const examplesResponse = await fetch(examplesURL);
@@ -61,7 +52,6 @@ async function createLine(word) {
     console.log(meaningsResult);
 
     displayCard(examplesResult, meaningsResult);
-    
   } catch (error) {
     console.error(error);
     removeAllChildNodes(document.getElementById("meaning-table"));

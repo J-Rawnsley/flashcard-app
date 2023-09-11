@@ -1,6 +1,6 @@
 function displayExamples({ word, examples }) {
-  clear()
-  
+  clear();
+
   document.getElementById("exampleHeading").innerHTML =
     "Example Sentence Flashcards";
 
@@ -15,7 +15,7 @@ function displayExamples({ word, examples }) {
 
     const headerRow = document.createElement("tr");
     headerRow.innerHTML = "<th>Word</th><th>Example</th>";
-    headerRow.classList.add("table-success")
+    headerRow.classList.add("table-success");
     table.appendChild(headerRow);
     // console.log(examples);
 
@@ -38,7 +38,7 @@ function displayMeanings({ word, definitions }) {
   const table = document.getElementById("meaning-table");
   removeAllChildNodes(table);
 
-    const headerRow = document.createElement("tr");
+  const headerRow = document.createElement("tr");
   headerRow.innerHTML = "<th>Word</th><th>Definition</th>";
   table.appendChild(headerRow);
 
@@ -54,15 +54,11 @@ function displayMeanings({ word, definitions }) {
 async function createTablesSingle() {
   const word = document.getElementById("input").value;
   console.log(word);
-  const clozeURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`;
-  const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
-  // const options = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": config.apiKey,
-  //     "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-  //   },
-  // };
+  // const clozeURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`;
+  const clozeURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-examples?word=${word}`;
+
+  // const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
+  const meaningsURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-definitions?word=${word}`;
 
   try {
     const clozeResponse = await fetch(clozeURL);
@@ -76,8 +72,6 @@ async function createTablesSingle() {
 
     displayExamples(clozeResult);
     displayMeanings(meaningsResult);
-
-
   } catch (error) {
     console.error(error);
     removeAllChildNodes(document.getElementById("meaning-table"));
