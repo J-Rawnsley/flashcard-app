@@ -5,7 +5,7 @@ function displayCard({ word, examples }, meaningsResult) {
   const table = document.getElementById("cloze-table");
 
   if (examples.length < 1) {
-    console.log(meaningsResult);
+    console.log("no examples", meaningsResult);
     const thisRow = document.createElement("tr");
     thisRow.innerHTML = `<td>${word}</td><td>(${meaningsResult.definitions[0].partOfSpeech}) ${meaningsResult.definitions[0].definition}</td>`;
     table.appendChild(thisRow);
@@ -39,20 +39,22 @@ async function createTablesMulti() {
 }
 
 async function createLine(word) {
-  const examplesURL = `https://wordsapiv1.p.rapidapi.com/words/${word}/examples`;
-  const meaningsURL = `https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": config.apiKey,
-      "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-    },
-  };
+  const examplesURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`
+
+  const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
+
+  // const options = {
+  //   method: "GET",
+  //   headers: {
+  //     "X-RapidAPI-Key": config.apiKey,
+  //     "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+  //   },
+  // };
 
   try {
-    const examplesResponse = await fetch(examplesURL, options);
+    const examplesResponse = await fetch(examplesURL);
     const examplesResult = await examplesResponse.json();
-    const meaningsResponse = await fetch(meaningsURL, options);
+    const meaningsResponse = await fetch(meaningsURL);
     const meaningsResult = await meaningsResponse.json();
 
     console.log(examplesResult);

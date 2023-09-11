@@ -23,8 +23,8 @@ function removeAllChildNodes(parent) {
 }
 
 function clozeDelete(sentence, word) {
-  console.log("sentence for cloze deletion: " + sentence);
-  console.log("word for cloze deletion: " + word);
+  // console.log("sentence for cloze deletion: " + sentence);
+  // console.log("word for cloze deletion: " + word);
 
   return sentence.replaceAll(word, "____");
 }

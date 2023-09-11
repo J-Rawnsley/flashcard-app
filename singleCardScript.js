@@ -17,10 +17,10 @@ function displayExamples({ word, examples }) {
     headerRow.innerHTML = "<th>Word</th><th>Example</th>";
     headerRow.classList.add("table-success")
     table.appendChild(headerRow);
-    console.log(examples);
+    // console.log(examples);
 
     examples.forEach((element) => {
-      console.log(element);
+      // console.log(element);
       const thisRow = document.createElement("tr");
       thisRow.innerHTML = `<td>${word}</td><td>${clozeDelete(
         element,
@@ -54,27 +54,30 @@ function displayMeanings({ word, definitions }) {
 async function createTablesSingle() {
   const word = document.getElementById("input").value;
   console.log(word);
-  const clozeURL = `https://wordsapiv1.p.rapidapi.com/words/${word}/examples`;
-  const meaningsURL = `https://wordsapiv1.p.rapidapi.com/words/${word}/definitions`;
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": config.apiKey,
-      "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
-    },
-  };
+  const clozeURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`;
+  const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
+  // const options = {
+  //   method: "GET",
+  //   headers: {
+  //     "X-RapidAPI-Key": config.apiKey,
+  //     "X-RapidAPI-Host": "wordsapiv1.p.rapidapi.com",
+  //   },
+  // };
 
   try {
-    const clozeResponse = await fetch(clozeURL, options);
+    const clozeResponse = await fetch(clozeURL);
     const clozeResult = await clozeResponse.json();
-    const meaningsResponse = await fetch(meaningsURL, options);
+
+    const meaningsResponse = await fetch(meaningsURL);
     const meaningsResult = await meaningsResponse.json();
+
+    console.log(clozeResult);
+    console.log("meanings result", meaningsResult);
 
     displayExamples(clozeResult);
     displayMeanings(meaningsResult);
 
-    console.log(clozeResult);
-    console.log(meaningsResult);
+
   } catch (error) {
     console.error(error);
     removeAllChildNodes(document.getElementById("meaning-table"));
