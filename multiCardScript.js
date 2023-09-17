@@ -36,11 +36,10 @@ async function createTablesMulti() {
 }
 
 async function createLine(word) {
-  // const examplesURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`
-  const examplesURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-examples?word=${word}`;
 
-  // const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
-  const meaningsURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-definitions?word=${word}`;
+  const examplesURL = `${urlStem}/.netlify/functions/token-hider-examples?word=${word}`;
+
+  const meaningsURL = `${urlStem}/.netlify/functions/token-hider-definitions?word=${word}`;
 
   try {
     const examplesResponse = await fetch(examplesURL);

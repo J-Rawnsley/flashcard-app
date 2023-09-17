@@ -54,11 +54,10 @@ function displayMeanings({ word, definitions }) {
 async function createTablesSingle() {
   const word = document.getElementById("input").value;
   console.log(word);
-  // const clozeURL = `http://localhost:8888/.netlify/functions/token-hider-examples?word=${word}`;
-  const clozeURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-examples?word=${word}`;
+  
+  const clozeURL = `${urlStem}/.netlify/functions/token-hider-examples?word=${word}`;
 
-  // const meaningsURL = `http://localhost:8888/.netlify/functions/token-hider-definitions?word=${word}`;
-  const meaningsURL = `https://flashcard-hint-generator.netlify.app/.netlify/functions/token-hider-definitions?word=${word}`;
+  const meaningsURL = `${urlStem}/.netlify/functions/token-hider-definitions?word=${word}`;
 
   try {
     const clozeResponse = await fetch(clozeURL);

@@ -1,3 +1,7 @@
+// const urlStem = "https://flashcard-hint-generator.netlify.app"
+const urlStem = "http://localhost:8888"
+
+
 function moreThanOneWord() {
   return document.getElementById("input").value.split(" ").length > 1;
 }
