@@ -1,5 +1,5 @@
-// const urlStem = "https://flashcard-hint-generator.netlify.app"
-const urlStem = "http://localhost:8888"
+const urlStem = "https://flashcard-hint-generator.netlify.app"
+// const urlStem = "http://localhost:8888"
 
 
 function moreThanOneWord() {
